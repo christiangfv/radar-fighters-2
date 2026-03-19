@@ -1,183 +1,124 @@
-# ⚔️ RADAR FIGHTERS 2 ⚔️
+# RADAR FIGHTERS 2 🥊
 
-### *La Arena Definitiva de la Oficina — Ahora en las Plataformas*
+**Neon Arcade Platformer Brawler** — Smash Bros-style fighting game featuring the Radar team.
 
-![Herbert Kick](assets/spr_herbert_kick.png) ![Radarín Special](assets/spr_radarin_special.png) ![Chris Attack](assets/spr_chris_atk.png)
-
-**24 guerreros. 3 vidas. Plataformas. Sin red.**
-
-### [🎮 JUGAR AHORA](https://christiangfv.github.io/radar-fighters-2/)
-
-*Radar Fighters 2 es un Platformer Brawler estilo Super Smash Bros / Brawlhalla. Lanza a tus rivales fuera del escenario, gana vidas, domina las plataformas.*
+🔗 **Play now:** [radar-fighters-2.vercel.app](https://radar-fighters-2.vercel.app/)
 
 ---
 
-## 🕹️ CONTROLES
+## ✨ v2.0 — Neon Arcade Edition
 
-### Jugador 1
-| Acción | Tecla |
-|--------|-------|
-| Moverse | `A` / `D` |
-| Saltar / Doble salto | `W` o `↑` |
-| Golpe normal | `J` |
-| Patada | `K` |
+The game received a major visual and gameplay overhaul:
+
+- **🌑 Neon aesthetic** — Dark animated backgrounds with floating particles and stars
+- **💡 Glowing platforms** — Neon-lit platforms with stage-specific colors and pulsing glow
+- **🎨 Damage HUD** — Color-coded damage % (white → yellow → orange → red)
+- **💥 Hit particles** — Colorful particle bursts on every hit, not just text
+- **📳 Screen shake** — More intense shake on heavy hits
+- **👥 Up to 4 Players** — FFA, teams, and vs AI modes
+- **⬆️ Higher jumps** — Jump feels more aerial and floaty
+
+---
+
+## 🎮 Game Modes
+
+| Mode | Description |
+|------|-------------|
+| **1P vs AI** | Single player vs CPU |
+| **2P Local** | Two players on one keyboard |
+| **2P vs AI** | Two humans vs two CPUs |
+| **4P Free-for-All** | Everyone fights everyone — last standing wins |
+| **2 vs 2 Teams** | P1+P2 team vs P3+P4 team — shared stocks |
+
+---
+
+## 🕹️ Controls
+
+### Player 1
+| Action | Key |
+|--------|-----|
+| Move | `A` / `D` |
+| Jump | `W` |
+| Block | `S` |
+| Punch | `J` |
+| Kick | `K` |
 | Special | `L` |
-| Bloquear | `S` (en suelo) |
 
-### Jugador 2
-| Acción | Tecla |
-|--------|-------|
-| Moverse | `←` / `→` |
-| Saltar / Doble salto | `↑` |
-| Golpe normal | `Numpad 1` o `U` |
-| Patada | `Numpad 2` o `I` |
-| Special | `Numpad 3` o `O` |
-| Bloquear | `↓` (en suelo) |
+### Player 2
+| Action | Key |
+|--------|-----|
+| Move | `← / →` |
+| Jump | `↑` |
+| Block | `↓` |
+| Punch | `Numpad 1` / `U` |
+| Kick | `Numpad 2` / `I` |
+| Special | `Numpad 3` / `O` |
 
-**📱 Móvil** — D-Pad + 3 botones de ataque en pantalla.
+### Player 3
+| Action | Key |
+|--------|-----|
+| Move | `F` / `H` |
+| Jump | `T` |
+| Block | `G` |
+| Punch | `Z` |
+| Kick | `X` |
+| Special | `C` |
 
----
-
-## ⚡ MECÁNICAS
-
-### 💥 Sistema de Daño (estilo Smash Bros)
-- Cada personaje empieza en **0%** de daño
-- Recibir golpes **sube el porcentaje** (0% → 999%)
-- A mayor porcentaje acumulado, **más lejos volaás** al recibir un golpe
-- Los personajes con mucho % se pueden KO con ataques moderados
-
-### 🚀 Knockback Dinámico
-- Los golpes empujan a los personajes en la dirección del ataque
-- `Golpe normal` → knockback suave, ideal para combos
-- `Patada` → knockback diagonal con más componente vertical
-- `Special` → knockback masivo, lanzamiento potente
-
-### 💀 Vidas (Stocks)
-- Cada jugador tiene **3 vidas**
-- Un personaje queda KO al salir de los **límites del escenario** (blast zones)
-- Al perder una vida, **reaparece desde arriba** con breve invencibilidad
-- Gana quien elimine las **3 vidas del rival**
-
-### 🏝️ Plataformas
-- Cada escenario tiene **4 plataformas**: suelo + 3 plataformas flotantes
-  - 2 plataformas laterales a altura media
-  - 1 plataforma central elevada
-- Las plataformas tienen **paso desde abajo** (solo colisionan al caer sobre ellas)
-- El combate se vuelve tridimensional: controla la altura
-
-### 🦘 Doble Salto
-- Primer salto: `W` o `↑` (en suelo)
-- Segundo salto: `W` o `↑` (en el aire)
-- El doble salto se recarga al tocar cualquier plataforma
-
-### 🛡️ Bloqueo
-- `S` (P1) o `↓` (P2) bloquea ataques mientras estás en suelo
-- El bloqueo reduce el knockback recibido
-- No puedes atacar mientras bloqueas
+### Player 4
+| Action | Key |
+|--------|-----|
+| Move | `Numpad 4` / `Numpad 6` |
+| Jump | `Numpad 8` |
+| Block | `Numpad 5` |
+| Punch | `Numpad 7` |
+| Kick | `Numpad 9` |
+| Special | `Numpad 0` |
+| Gamepad | Xbox / PS controller (player 1 gamepad) |
 
 ---
 
-## 🎮 EL ROSTER (24 personajes)
+## ⚔️ Mechanics
 
-### 👑 Fundadores
-**HERBERT** · CEO · ⚔️9 💨6 🛡️6  
-**GABO** · CTO · ⚔️8 💨8 🛡️5  
-**AMANDA** · CRO · ⚔️8 💨8 🛡️5
-
-### 💻 Ingeniería
-**ARTURO** · Tech Manager · **JAIME** · Tech Lead · **CHRIS** · Backend Eng  
-**KEVIN** · Full Stack · **LORENS** · Backend · **NELSON** · Backend  
-**ANDRÉS** · DevOps · **JAVIER** · Frontend · **GERARDO** · Low Code
-
-### 📊 Producto & Negocio
-**CARLO** · Product Lead · **ESTEBAN** · Biz Dev · **FRANCISCO** · Analyst
-
-### 💰 Ventas
-**HÉCTOR** · Sales Manager · **ALEX** · Sales Exec
-
-### ⚙️ Ops, Finanzas & People
-**DANI** · Ops Analyst · **YONG** · Ops Manager · **GERI** · Accounting · **MAX** · People
-
-### 📣 Marketing & Comms
-**ANDY** · Marketing Lead · **KAREN** · Comms Analyst
-
-### 🐬 Jefe Secreto
-**RADARÍN** · Chief Culture Officer · ⚔️10 💨10 🛡️10  
-*"No es solo la mascota. Es el JEFE FINAL."*
+- **Damage %** — Accumulates as you take hits. Higher % = more knockback
+- **Stocks (lives)** — 3 stocks per player/team. Fly off stage to lose one
+- **Double jump** — Press jump again mid-air
+- **Blocking** — Hold block while grounded to reduce knockback
+- **Platforms** — 5 platforms per stage: ground + 4 floating, asymmetric layout
 
 ---
 
-## 🗺️ ESCENARIOS
+## 🎨 Stage Neon Colors
 
-- **Ixtapa** — El clásico de las palmas
-- **Valle Bravo** — Vista al lago, fights al atardecer
-- **Colchagua** — Entre viñedos y ganchos
-- **Zapallar** — La playa más peligrosa de Chile
-
----
-
-## 🎨 CARACTERÍSTICAS
-
-- 🎭 **24 luchadores** con sprites pixel art personalizados
-- 🏝️ **Plataformas flotantes** en cada escenario
-- 💥 **Física de knockback** dinámica (escala con el % de daño)
-- 🎵 **Música chiptune 8-bit** dinámica por escena
-- 📱 **Responsive** — Desktop y móvil
-- 🎮 **1P vs IA** o **2P local**
-- ⚡ **Cero dependencias** — Vanilla JS puro, sin build step
-- 🔊 **Web Audio API** — SFX generados proceduralmente
-- ✨ **Efectos** — Partículas, screen shake, invencibilidad al respawn
+| Stage | Color |
+|-------|-------|
+| Ixtapa | 🟣 Violet `#bf00ff` |
+| Colchagua | 🟢 Green `#00ff88` |
+| Zapallar | 🔵 Cyan `#00d2ff` |
+| Valle Bravo | 🟠 Orange `#ff6b00` |
 
 ---
 
-## 🚀 JUGAR
+## 👾 Roster — 24 Characters
 
-**Online:** [christiangfv.github.io/radar-fighters-2](https://christiangfv.github.io/radar-fighters-2/)
-
-**Local:**
-```bash
-git clone https://github.com/christiangfv/radar-fighters-2.git
-cd radar-fighters-2
-npx serve .
-```
-
-Sin `npm install`. Sin webpack. Sin drama.
+All characters are based on the Radar team:
+Herbert, Gabo, Amanda, Arturo, Jaime, Chris, Kevin, Lorens, Nelson, Andrés, Javier, Gerardo, Carlo, Esteban, Francisco, Héctor, Alex, Dani, Yong, Geri, Max, Andy, Karen, and **Radarín** (secret boss 🐬).
 
 ---
 
-## 🛠️ STACK
+## 🛠️ Tech Stack
 
-- **PixiJS 8** — Renderizado WebGL/Canvas
-- **Web Audio API** — Música chiptune + SFX procedural
-- **Vanilla JS** — Lógica del juego (~1900 líneas)
-- **HTML5 + CSS3** — Cero frameworks
-
----
-
-## 📜 CHANGELOG
-
-### v2.0 — Platformer Brawler
-- ✅ Sistema de daño porcentual (0%–999%) estilo Smash Bros
-- ✅ Knockback dinámico que escala con el daño acumulado
-- ✅ Sistema de vidas/stocks (3 por jugador)
-- ✅ KO por salir de los límites del escenario (blast zones)
-- ✅ Reaparición desde arriba con invencibilidad temporal
-- ✅ Doble salto para todos los personajes
-- ✅ 4 plataformas por escenario (suelo + 3 flotantes)
-- ✅ Paso a través de plataformas desde abajo
-- ✅ Cámara con zoom dinámico según separación de personajes
-- ✅ Nuevos controles simplificados: J=golpe, K=patada, L=special
-
-### v1.0 — Street Fighter Original
-- Sistema HP + best of 3 rounds
-- 6 botones de ataque (LP/MP/HP/LK/MK/HK)
+- **Vanilla JS + HTML5 Canvas** via [PixiJS v8](https://pixijs.com/)
+- **Web Audio API** — Procedural 8-bit chiptune music & SFX
+- No build steps — open `index.html` and go
 
 ---
 
-![Herbert Attack](assets/spr_herbert_atk.png) ![Radarín Attack](assets/spr_radarin_atk.png) ![Gabo Kick](assets/spr_gabo_kick.png)
+## 🚀 Deploy
 
-*Elige tu luchador. Vuela a tu rival fuera del escenario. Hazlo otra vez.*
+Hosted on Vercel: [radar-fighters-2.vercel.app](https://radar-fighters-2.vercel.app/)
 
-Hecho con 💪, ☕ y física de Smash Bros por el equipo de [Radar](https://radar.cl)
+GitHub Pages also available via the `deploy.yml` workflow.
 
-**© 2026 RADAR FIGHTERS 2** — *Todos los derechos reservados para darte knockback*
+---
+
+*Made with ❤️ by the Radar team. Punch your coworkers (virtually).*
