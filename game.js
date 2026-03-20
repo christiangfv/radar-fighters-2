@@ -20,11 +20,11 @@ const AIR_FRICTION   = 0.96;
 
 // ── Stage neon palette ──────────────────────────────────────
 const STAGE_NEON = {
-  'bg_ixtapa':    0xbf00ff,
-  'bg_colchagua': 0x00ff88,
-  'bg_zapallar':  0x00d2ff,
-  'bg_vallebravo':0xff6b00,
-  'bg':           0xbf00ff,
+  'bg_ixtapa':    0xff2200,
+  'bg_colchagua': 0xff6600,
+  'bg_zapallar':  0xff0044,
+  'bg_vallebravo':0xdd0000,
+  'bg':           0xff2200,
 };
 
 // ── Player colors ───────────────────────────────────────────
@@ -424,7 +424,7 @@ function makeButton(label, x, y, w, h, opts = {}) {
   container.interactive = true; container.cursor = 'pointer';
   const bg = new PIXI.Graphics();
   const color      = opts.color  || 0x050514;
-  const borderColor = opts.border || 0x00ffcc;
+  const borderColor = opts.border || 0xff2200;
   function drawBg(hover) {
     bg.clear();
     bg.roundRect(-w/2, -h/2, w, h, 8);
@@ -437,10 +437,10 @@ function makeButton(label, x, y, w, h, opts = {}) {
     }
   }
   drawBg(false); container.addChild(bg);
-  const txt = makeText(label, { size: opts.fontSize || 11, color: opts.textColor !== undefined ? opts.textColor : 0x00ffcc });
+  const txt = makeText(label, { size: opts.fontSize || 11, color: opts.textColor !== undefined ? opts.textColor : 0xff2200 });
   txt.anchor.set(0.5); container.addChild(txt);
   container.on('pointerover', () => { drawBg(true);  txt.style.fill = opts.hoverTextColor || 0x000000; });
-  container.on('pointerout',  () => { drawBg(false); txt.style.fill = opts.textColor !== undefined ? opts.textColor : 0x00ffcc; });
+  container.on('pointerout',  () => { drawBg(false); txt.style.fill = opts.textColor !== undefined ? opts.textColor : 0xff2200; });
   return container;
 }
 
@@ -467,8 +467,8 @@ function buildNeonBackground(container) {
   for (let i = 0; i < steps; i++) {
     const t = i / steps;
     // Interpolate from dark blue-navy top to near-black middle to dark violet bottom
-    const r1 = 0, g1 = 5, b1 = 25;     // dark navy top
-    const r2 = 8, g2 = 0, b2 = 20;     // dark violet bottom
+    const r1 = 15, g1 = 0, b1 = 0;     // dark crimson top
+    const r2 = 5,  g2 = 0, b2 = 0;     // near-black bottom
     const r = Math.round(r1 + (r2-r1)*t);
     const g = Math.round(g1 + (g2-g1)*t);
     const b = Math.round(b1 + (b2-b1)*t);
@@ -495,7 +495,7 @@ function buildNeonBackground(container) {
   const particleLayer = new PIXI.Container();
   container.addChild(particleLayer);
   const particles = [];
-  const particleColors = [0x00ffcc, 0xff44aa, 0x4488ff, 0xbf00ff, 0x00d2ff];
+  const particleColors = [0xff2222, 0xff6600, 0xff0066, 0xdd0000, 0xff4400];
   for (let i = 0; i < 30; i++) {
     const g = new PIXI.Graphics();
     const size = Math.random() * 2.5 + 0.5;
@@ -529,15 +529,15 @@ function buildMenuScene(container) {
   titleCont.x = W()/2; titleCont.y = H()*0.18;
   container.addChild(titleCont);
   const titleSize = Math.min(Math.floor(W()/18), 44);
-  const titleGlow = makeGlowText('RADAR FIGHTERS 2', titleSize, 0x00ffcc);
+  const titleGlow = makeGlowText('RADAR FIGHTERS 2', titleSize, 0xff2222);
   titleCont.addChild(titleGlow);
-  const subtitle = makeText('NEON ARCADE BRAWLER', {
-    size: Math.max(7, Math.floor(W()/75)), color:0xff44aa, shadow:true, shadowColor:0xff44aa, shadowBlur:8
+  const subtitle = makeText('PLATFORMER BRAWLER', {
+    size: Math.max(7, Math.floor(W()/75)), color:0xff6600, shadow:true, shadowColor:0xff4400, shadowBlur:8
   });
   subtitle.anchor.set(0.5); subtitle.y = titleSize * 1.6; titleCont.addChild(subtitle);
 
   const pressStart = makeText('PRESS ENTER TO START', {
-    size: Math.max(7, Math.floor(W()/75)), color:0xffff00, shadow:true, shadowColor:0xffaa00, shadowBlur:8
+    size: Math.max(7, Math.floor(W()/75)), color:0xff4400, shadow:true, shadowColor:0xff2200, shadowBlur:8
   });
   pressStart.anchor.set(0.5); pressStart.x = W()/2; pressStart.y = H()*0.40; container.addChild(pressStart);
 
@@ -546,13 +546,10 @@ function buildMenuScene(container) {
   const btnX = W()/2, btnGap = btnH + 10;
   const btnStartY = H() * 0.50;
 
-  const btn1P   = makeButton('1 PLAYER VS AI',     btnX, btnStartY,          btnW, btnH, { color:0x060620, border:0x4488ff, textColor:0x4488ff, hoverTextColor:0xffffff });
-  const btn2P   = makeButton('2 PLAYERS LOCAL',    btnX, btnStartY+btnGap,   btnW, btnH, { color:0x060620, border:0xff4444, textColor:0xff4444, hoverTextColor:0xffffff });
-  const btn2PAI = makeButton('2P VS 2 AI',         btnX, btnStartY+btnGap*2, btnW, btnH, { color:0x060620, border:0x44ff88, textColor:0x44ff88, hoverTextColor:0x000000 });
-  const btn4P   = makeButton('4P FREE FOR ALL',    btnX, btnStartY+btnGap*3, btnW, btnH, { color:0x060620, border:0xffdd00, textColor:0xffdd00, hoverTextColor:0x000000 });
-  const btn2V2  = makeButton('2 VS 2 TEAMS',       btnX, btnStartY+btnGap*4, btnW, btnH, { color:0x060620, border:0xbf00ff, textColor:0xbf00ff, hoverTextColor:0xffffff });
-  const btnQuick= makeButton('⚡ QUICK FIGHT',     btnX, btnStartY+btnGap*5, btnW*0.65, btnH, { color:0x060620, border:0x00ffcc, textColor:0x00ffcc });
-  container.addChild(btn1P, btn2P, btn2PAI, btn4P, btn2V2, btnQuick);
+  const btn1P = makeButton('1 PLAYER VS AI',  btnX, btnStartY,         btnW, btnH, { color:0x1a0000, border:0xff2222, textColor:0xff2222, hoverTextColor:0xffffff });
+  const btn2P = makeButton('2 PLAYERS',       btnX, btnStartY+btnGap,  btnW, btnH, { color:0x1a0000, border:0xff6600, textColor:0xff6600, hoverTextColor:0xffffff });
+  const btn4P = makeButton('4 PLAYERS FFA',   btnX, btnStartY+btnGap*2,btnW, btnH, { color:0x1a0000, border:0xffaa00, textColor:0xffaa00, hoverTextColor:0x000000 });
+  container.addChild(btn1P, btn2P, btn4P);
 
   function startMode(mode) {
     document.removeEventListener('keydown', keyHandler);
@@ -560,18 +557,9 @@ function buildMenuScene(container) {
     flashTransition(() => showScene(SCENES.CHARACTER_SELECT));
   }
 
-  btn1P.on('pointertap',   () => startMode('1P'));
-  btn2P.on('pointertap',   () => startMode('2P'));
-  btn2PAI.on('pointertap', () => startMode('2PAI'));
-  btn4P.on('pointertap',   () => startMode('4PFFA'));
-  btn2V2.on('pointertap',  () => startMode('2V2'));
-  btnQuick.on('pointertap',() => {
-    document.removeEventListener('keydown', keyHandler);
-    playSFX('select'); gameMode = '1P';
-    charIndices[0] = Math.floor(Math.random()*CHARACTERS.length);
-    charIndices[1] = (charIndices[0] + 1 + Math.floor(Math.random()*(CHARACTERS.length-1))) % CHARACTERS.length;
-    flashTransition(() => showScene(SCENES.FIGHT));
-  });
+  btn1P.on('pointertap', () => startMode('1P'));
+  btn2P.on('pointertap', () => startMode('2P'));
+  btn4P.on('pointertap', () => startMode('4PFFA'));
 
   const keyHandler = (e) => {
     if (['Enter',' '].includes(e.key)) {
@@ -625,7 +613,7 @@ function buildSelectScene(container) {
 
   // Mode label
   const modeLabels = { '1P':'1P VS AI', '2P':'2P LOCAL', '4PFFA':'4P FREE-FOR-ALL', '2V2':'2 VS 2 TEAMS', '2PAI':'2P VS 2 AI' };
-  const modeText = makeText('[' + (modeLabels[gameMode]||gameMode) + ']', { size:8, color:0x00ffcc });
+  const modeText = makeText('[' + (modeLabels[gameMode]||gameMode) + ']', { size:8, color:0xff4400 });
   modeText.anchor.set(0.5); modeText.x = W()/2; modeText.y = H()*0.105; container.addChild(modeText);
 
   // Grid
@@ -883,7 +871,7 @@ function buildFightScene(container) {
   if (!currentStage) currentStage = STAGES[Math.floor(Math.random()*STAGES.length)];
   const stageName = currentStage;
   currentStage = null;
-  const neonColor = STAGE_NEON[stageName] || 0x00ffcc;
+  const neonColor = STAGE_NEON[stageName] || 0xff2200;
 
   // ── Stage background ────────────────────────────────────
   const bgSprite = new PIXI.Sprite(textures[stageName] || textures['bg']);
@@ -899,7 +887,7 @@ function buildFightScene(container) {
   const bgParticles = [];
   const bgPartLayer = new PIXI.Container();
   container.addChild(bgPartLayer);
-  const neonColors2 = [neonColor, 0x00ffcc, 0xff44aa];
+  const neonColors2 = [neonColor, 0xff4400, 0xff0044];
   for (let i = 0; i < 20; i++) {
     const g = new PIXI.Graphics();
     const color = neonColors2[Math.floor(Math.random()*neonColors2.length)];
@@ -1170,7 +1158,7 @@ function buildFightScene(container) {
 
   // HUD background bar
   const hudBg = new PIXI.Graphics();
-  hudBg.rect(0, H()-80, W(), 80).fill({ color:0x000011, alpha:0.75 });
+  hudBg.rect(0, H()-80, W(), 80).fill({ color:0x0d0000, alpha:0.82 });
   hudBg.rect(0, H()-82, W(), 2).fill({ color:neonColor, alpha:0.4 });
   hudLayer.addChild(hudBg);
 
@@ -1318,9 +1306,12 @@ function buildFightScene(container) {
     if (f.vy < 0) return null;
     if (f._knockbackFrames > 0) return null;
     for (const plat of platforms) {
-      if (f.x >= plat.x-2 && f.x <= plat.x+plat.w+2) {
-        const prevY = f.y - f.vy*0.5;
-        if (prevY <= plat.y+2 && f.y >= plat.y-2) return plat;
+      if (f.x >= plat.x - 2 && f.x <= plat.x + plat.w + 2) {
+        // Use a generous sweep: check if fighter crossed the platform surface this frame
+        const prevY = f.y - f.vy;               // position one full frame ago
+        if (prevY <= plat.y + 4 && f.y >= plat.y - 4) return plat;
+        // Extra safety for ground platform: snap if below surface
+        if (plat.isGround && f.y >= plat.y) return plat;
       }
     }
     return null;
@@ -1786,7 +1777,7 @@ function buildFightScene(container) {
         return;
       }
 
-      f.vy += GRAVITY;
+      f.vy = Math.min(f.vy + GRAVITY, 28); // cap fall speed so respawning players can't clip through ground
       if (f._knockbackFrames > 0) {
         f._knockbackFrames = Math.max(0, f._knockbackFrames-dt);
         f.vx *= KB_FRICTION;
